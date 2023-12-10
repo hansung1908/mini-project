@@ -6,7 +6,7 @@ import pytesseract
 plt.style.use('dark_background')
 
 # 이미지 읽어오기
-img_ori = cv2.imread('license_picture\ROK_Construction_Equipment_Registration_Plate_for_Private_Fork_Lift_Truck_-_Jeonnam.jpg')
+img_ori = cv2.imread('license_picture/200px-Korean_License_Plate_for_Military_vehicle_-_Army.jpg')
 
 # 높이, 너비, 채널
 height, width, channel = img_ori.shape
