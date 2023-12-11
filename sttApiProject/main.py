@@ -96,6 +96,15 @@ def youtube_summary():
     print(summarize_text)
     output2.insert(tk.END, summarize_text)
 
+
+path = "."
+test = os.listdir(path)
+
+for item in test:
+    if item.endswith((".wav", ".mp3", ".webm")):
+        os.remove(os.path.join(path, item))
+
+
 # 메인 윈도우 생성
 root = tk.Tk()
 root.title("유튜브 영상 요약하기")
