@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨 정보</title>
+</head>
+<body>
+    <h1>날씨 정보</h1>
+    <p>지역: {{ location }}</p>
+    <p>기온: {{ weather_info['기온'] }}℃</p>
+    <p>강수량: {{ weather_info['강수량'] }}mm</p>
+    <p>풍속: {{ weather_info['풍속'] }}m/s</p>
+    <a href="{{ url_for('index') }}">지역 선택으로 돌아가기</a>
+</body>
+</html>

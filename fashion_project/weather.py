@@ -17,10 +17,12 @@ now_time = (now_time[0:2])
 if now_time == "0000":
     now_date = int(now_date) - 1
     now_time = "2300"
-elif int(now_time[0:2]) < 10:
+elif int(now_time[0:2]) < 11:
     now_time = "0" + str(int(now_time[0:2]) - 1) + "00"  # ex) 0600
 elif int(now_time[0:2]) < 24:
     now_time = str(int(now_time[0:2]) - 1) + "00"  # ex) 0600
+
+print(now_date, now_time)
 
 # 서울, 부산, 대구, 인천, 광주, 대전, 울산, 세종, 경기, 충북, 충남, 전북, 전남, 경북, 경남, 제주순으로 좌표값
 xy_list = [(60, 127), (98, 76), (89, 90), (55, 124), (58, 74), (67, 100), (102, 84), (66, 103), \
