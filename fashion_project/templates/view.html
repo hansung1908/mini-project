@@ -11,6 +11,13 @@
     <p>기온: {{ weather_info['기온'] }}℃</p>
     <p>강수량: {{ weather_info['강수량'] }}mm</p>
     <p>풍속: {{ weather_info['풍속'] }}m/s</p>
+    {% if weather_info['기온'] > 25 %}
+        <img src="{{ url_for('static', filename='hot_weather_image.jpg') }}" alt="Hot Weather">
+    {% elif weather_info['기온'] < 10 %}
+        <img src="{{ url_for('static', filename='cold_weather_image.jpg') }}" alt="Cold Weather">
+    {% else %}
+        <img src="{{ url_for('static', filename='normal_weather_image.jpg') }}" alt="Normal Weather">
+    {% endif %}
     <a href="{{ url_for('index') }}">지역 선택으로 돌아가기</a>
 </body>
 </html>
