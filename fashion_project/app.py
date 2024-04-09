@@ -9,6 +9,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route("/select")
+def select():
+    return render_template('select.html')
+
 @app.route('/submit', methods=['POST'])
 def submit():
     location = request.form['location']

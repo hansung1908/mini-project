@@ -3,12 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>지역 선택</title>
+    <title>시작 화면</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/list-groups/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link href="{{ url_for('static', filename='list-groups.css') }}" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -90,177 +89,28 @@
     </style>
 </head>
 <body>
-<form action="/submit" method="post">
-    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-        <div class="text-center">
-            <h1>지역 선택</h1>
-            <p>본인이 지금 위치한 지역이나 원하는 지역을 선택하시오.</p>
+<div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom d-flex justify-content-between">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+            <span class="fs-4">Weastyle</span>
+        </a>
+        <div class="d-flex">
+            <span class="fs-4 px-2" id="link1">1</span>
+            <span class="fs-4 px-2" id="link2">2</span>
+            <span class="fs-4 px-2" id="link3">3</span>
+        </div>
+    </header>
+
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3 text-center">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">웨스타일 (Weastyle)</h1>
+            <p class="col-md-12 fs-4">※ 날씨api와 SNS 패션이미지 크롤링을 통해 Tensorflow를 활용한<br>날씨에 따른 생성된 패션 이미지 추천 프로그램</p>
+            <a href="/select" class="btn btn-primary btn-lg">start</a>
         </div>
     </div>
+</div>
 
-    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-        <div class="list-group list-group-radio d-grid gap-2 border-0">
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="seoul" value="서울" checked>
-                <label class="list-group-item py-3 pe-5" for="seoul">
-                    <strong class="fw-semibold">서울</strong>
-                    <span class="d-block small opacity-75">Seoul</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="busan" value="부산">
-                <label class="list-group-item py-3 pe-5" for="busan">
-                    <strong class="fw-semibold">부산</strong>
-                    <span class="d-block small opacity-75">Busan</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="daegu" value="대구">
-                <label class="list-group-item py-3 pe-5" for="daegu">
-                    <strong class="fw-semibold">대구</strong>
-                    <span class="d-block small opacity-75">Daegu</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="incheon" value="인천">
-                <label class="list-group-item py-3 pe-5" for="incheon">
-                    <strong class="fw-semibold">인천</strong>
-                    <span class="d-block small opacity-75">Incheon</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="gwangju" value="광주">
-                <label class="list-group-item py-3 pe-5" for="gwangju">
-                    <strong class="fw-semibold">광주</strong>
-                    <span class="d-block small opacity-75">Gwangju</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="daejeon" value="대전">
-                <label class="list-group-item py-3 pe-5" for="daejeon">
-                    <strong class="fw-semibold">대전</strong>
-                    <span class="d-block small opacity-75">Daejeon</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="ulsan" value="울산">
-                <label class="list-group-item py-3 pe-5" for="ulsan">
-                    <strong class="fw-semibold">울산</strong>
-                    <span class="d-block small opacity-75">Ulsan</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="sejong" value="세종">
-                <label class="list-group-item py-3 pe-5" for="sejong">
-                    <strong class="fw-semibold">세종</strong>
-                    <span class="d-block small opacity-75">Sejong</span>
-                </label>
-            </div>
-        </div>
-
-        <div class="list-group list-group-radio d-grid gap-2 border-0">
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="gyeonggi" value="경기">
-                <label class="list-group-item py-3 pe-5" for="gyeonggi">
-                    <strong class="fw-semibold">경기도</strong>
-                    <span class="d-block small opacity-75">Gyeonggi-do</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="chungbuk" value="충북">
-                <label class="list-group-item py-3 pe-5" for="chungbuk">
-                    <strong class="fw-semibold">충청북도</strong>
-                    <span class="d-block small opacity-75">Chungcheongbuk-do</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                                 name="location" id="chungnam" value="충남">
-                <label class="list-group-item py-3 pe-5" for="chungnam">
-                    <strong class="fw-semibold">충청남도</strong>
-                    <span class="d-block small opacity-75">Chungcheongnam-do</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="jeonbuk" value="전북">
-                <label class="list-group-item py-3 pe-5" for="jeonbuk">
-                    <strong class="fw-semibold">전라북도</strong>
-                    <span class="d-block small opacity-75">Jeollabuk-do</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="jeonnam" value="전남">
-                <label class="list-group-item py-3 pe-5" for="jeonnam">
-                    <strong class="fw-semibold">전라남도</strong>
-                    <span class="d-block small opacity-75">Jeollanam-do</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="gyeongbuk" value="경북">
-                <label class="list-group-item py-3 pe-5" for="gyeongbuk">
-                    <strong class="fw-semibold">경상북도</strong>
-                    <span class="d-block small opacity-75">Gyeongsangbuk-do</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="gyeongnam" value="경남">
-                <label class="list-group-item py-3 pe-5" for="gyeongnam">
-                    <strong class="fw-semibold">경상남도</strong>
-                    <span class="d-block small opacity-75">Gyeongsangnam-do</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="jeju" value="제주">
-                <label class="list-group-item py-3 pe-5" for="jeju">
-                    <strong class="fw-semibold">제주특별자치도</strong>
-                    <span class="d-block small opacity-75">Jeju Special Self-Governing Province</span>
-                </label>
-            </div>
-
-            <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
-                       name="location" id="gangwon" value="강원">
-                <label class="list-group-item py-3 pe-5" for="gangwon">
-                    <strong class="fw-semibold">강원도</strong>
-                    <span class="d-block small opacity-75">Gangwon-do</span>
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-        <input class="btn btn-primary mt-3" type="submit" value="Submit">
-    </div>
-</form>
+<script src="{{ url_for('static', filename='js/test.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

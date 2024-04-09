@@ -22,10 +22,8 @@ elif int(now_time[0:2]) < 11:
 elif int(now_time[0:2]) < 24:
     now_time = str(int(now_time[0:2]) - 1) + "00"  # ex) 0600
 
-print(now_date, now_time)
-
 # 서울, 부산, 대구, 인천, 광주, 대전, 울산, 세종, 경기, 충북, 충남, 전북, 전남, 경북, 경남, 제주, 강원순으로 좌표값
-xy_list = [(60, 127), (98, 76), (89, 90), (55, 124), (58, 74), (67, 100), (102, 84), (66, 103), \
+xy_list = [(60, 127), (98, 76), (89, 90), (55, 124), (58, 74), (67, 100), (102, 84), (66, 103),
            (60, 120), (69, 107), (68, 100), (63, 89), (51, 67), (89, 91), (91, 77), (52, 38), (73, 134)]
 
 # 공공데이터 포털에서 단기예보api를 사용하기 위한 api키
@@ -42,9 +40,11 @@ wind_speed = []
 # 지역 수 만큼 각 좌표에 해당하는 온도, 강수량, 풍속 정보를 각 리스트에 담아줌
 for i in range(0, len(xy_list)):
     # 해당 url에 api키, 시간대, 좌표 정보를 넣어줘 데이터를 띄움
-    url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey={}&numOfRows=10&pageNo=1&base_date={}&base_time={}&nx={}&ny={}' \
+    url = ('http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey={'
+           '}&numOfRows=10&pageNo=1&base_date={}&base_time={}&nx={}&ny={}') \
         .format(api_key, now_date, now_time, xy_list[i][0], xy_list[i][1])
 
+    print(url)
     # 해당 url에 띄워진 데이터를 크롤링해서 가져옴
     # 이때 ssl 인증서 오류가 발생할 수 있으므로 verify=certifi.where() 옵션을 통해 인증서를 찾아서 직접 인증
     content = requests.get(url, verify=certifi.where()).content
