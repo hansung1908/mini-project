@@ -86,54 +86,187 @@
         .bd-mode-toggle .dropdown-menu .active .bi {
           display: block !important;
         }
+
+        .feature-icon {
+          width: 4rem;
+          height: 4rem;
+          border-radius: .75rem;
+        }
+
+        .icon-square {
+          width: 3rem;
+          height: 3rem;
+          border-radius: .75rem;
+        }
+
+        .text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+        .text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+        .text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+
+        .card-cover {
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+        }
+
+        .feature-icon-small {
+          width: 3rem;
+          height: 3rem;
+        }
     </style>
 </head>
 <body>
-<div class="container py-4">
+<div class="container px-4 py-5" id="featured-3">
     <header class="pb-3 mb-4 border-bottom d-flex justify-content-between">
-        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none fw-bold">
             <span class="fs-4">Weastyle</span>
         </a>
         <div class="d-flex">
-            <span class="fs-4 px-2" id="link1">1</span>
-            <span class="fs-4 px-2" id="link2">2</span>
-            <span class="fs-4 px-2" id="link3">3</span>
+            <span class="fs-4 px-2 fw-bold" id="link1">1</span>
+            <span class="fs-4 px-2 fw-bold" id="link2">2</span>
+            <span class="fs-4 px-2 fw-bold" id="link3">3</span>
         </div>
     </header>
-    
-    <div class="album py-5 bg-body-tertiary">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-1">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="row g-0">
-                            <div class="col-md-9 d-flex justify-content-center align-items-center">
-                                {% if style_tag == 'casual' %}
-                                <img class="card-img-top" src="{{ url_for('static', filename='casual.jpg') }}"
-                                     alt="Casual">
-                                {% else %}
-                                <img class="card-img-top" src="{{ url_for('static', filename='else.jpg') }}"
-                                     alt="Else">
-                                {% endif %}
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card-body">
-                                    <h1>날씨 정보</h1>
-                                    <p class="card-text">지역: {{ location }}</p>
-                                    <p class="card-text">기온: {{ weather_info['기온'] }}℃</p>
-                                    <p class="card-text">강수량: {{ weather_info['강수량'] }}mm</p>
-                                    <p class="card-text">풍속: {{ weather_info['풍속'] }}m/s</p>
-                                    <p class="card-text">스타일: {{ style_tag }}</p>
 
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="{{ url_for('select') }}" class="btn btn-sm btn-outline-secondary">지역
-                                            선택으로
-                                            돌아가기</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+        <div class="col d-flex flex-column align-items-center gap-2">
+            <h2 class="fw-bold text-body-emphasis">지역: {{ location }}</h2>
+            <a href="{{ url_for('select') }}" class="btn btn-sm btn-outline-secondary">지역 선택으로 돌아가기</a>
+        </div>
+
+        <div class="col">
+            <div class="row row-cols-1 row-cols-sm-2 g-4">
+                <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3 bg-transparent border border-dark border-2">
+                        <img src="{{ url_for('static', filename='icon/thermometer.png') }}" width="32" height="32"
+                             alt="thermometer"/>
                     </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">기온: {{ weather_info['기온'] }}℃</h4>
+                </div>
+
+                <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3 bg-transparent border border-dark border-2">
+                        <img src="{{ url_for('static', filename='icon/rain.png') }}" width="32" height="32" alt="rain"/>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">강수량: {{ weather_info['강수량'] }}mm</h4>
+                </div>
+
+                <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3 bg-transparent border border-dark border-2">
+                        <img src="{{ url_for('static', filename='icon/wind.png') }}" width="32" height="32" alt="wind"/>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">풍속: {{ weather_info['풍속'] }}m/s</h4>
+                </div>
+
+                <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3 bg-transparent border border-dark border-2">
+                        <img src="{{ url_for('static', filename='icon/hanger.png') }}" width="32" height="32"
+                             alt="hanger"/>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">스타일: {{ style_tag }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container px-4 py-5" id="custom-cards">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-white rounded-4 shadow-lg">
+                {% if style_tag == 'casual' %}
+                <img class="card-img-top" src="{{ url_for('static', filename='casual.jpg') }}"
+                     alt="Casual">
+                {% else %}
+                <img class="card-img-top" src="{{ url_for('static', filename='else.jpg') }}"
+                     alt="Else">
+                {% endif %}
+
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-dark">
+                    <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                            <img src="{{ url_for('static', filename='icon/instagram.png') }}" width="32" height="32"
+                                 alt="instagram"/>
+                        </li>
+                        <li class="d-flex align-items-center me-3">
+                            <img src="{{ url_for('static', filename='icon/user.png') }}" width="16" height="16"
+                                 alt="user"/>
+                            <span style="margin-right: 5px;"></span>
+                            <small>Test</small>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <img src="{{ url_for('static', filename='icon/calendar.png') }}" width="16" height="16"
+                                 alt="calendar"/>
+                            <span style="margin-right: 5px;"></span>
+                            <small>2024-05-01</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-white rounded-4 shadow-lg">
+                {% if style_tag == 'casual' %}
+                <img class="card-img-top" src="{{ url_for('static', filename='casual.jpg') }}"
+                     alt="Casual">
+                {% else %}
+                <img class="card-img-top" src="{{ url_for('static', filename='else.jpg') }}"
+                     alt="Else">
+                {% endif %}
+
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-dark">
+                    <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                            <img src="{{ url_for('static', filename='icon/instagram.png') }}" width="32" height="32"
+                                 alt="instagram"/>
+                        </li>
+                        <li class="d-flex align-items-center me-3">
+                            <img src="{{ url_for('static', filename='icon/user.png') }}" width="16" height="16"
+                                 alt="user"/>
+                            <span style="margin-right: 5px;"></span>
+                            <small>Test</small>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <img src="{{ url_for('static', filename='icon/calendar.png') }}" width="16" height="16"
+                                 alt="calendar"/>
+                            <span style="margin-right: 5px;"></span>
+                            <small>2024-05-01</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-white rounded-4 shadow-lg">
+                {% if style_tag == 'casual' %}
+                <img class="card-img-top" src="{{ url_for('static', filename='casual.jpg') }}"
+                     alt="Casual">
+                {% else %}
+                <img class="card-img-top" src="{{ url_for('static', filename='else.jpg') }}"
+                     alt="Else">
+                {% endif %}
+
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-dark">
+                    <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                            <img src="{{ url_for('static', filename='icon/instagram.png') }}" width="32" height="32"
+                                 alt="instagram"/>
+                        </li>
+                        <li class="d-flex align-items-center me-3">
+                            <img src="{{ url_for('static', filename='icon/user.png') }}" width="16" height="16"
+                                 alt="user"/>
+                            <span style="margin-right: 5px;"></span>
+                            <small>Test</small>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <img src="{{ url_for('static', filename='icon/calendar.png') }}" width="16" height="16"
+                                 alt="calendar"/>
+                            <span style="margin-right: 5px;"></span>
+                            <small>2024-05-01</small>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

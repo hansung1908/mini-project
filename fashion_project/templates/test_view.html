@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>시작 화면</title>
+    <title>날씨 정보</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/list-groups/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -100,12 +100,42 @@
             <span class="fs-4 px-2 fw-bold" id="link3">3</span>
         </div>
     </header>
+    
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-1">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="row g-0">
+                            <div class="col-md-9 d-flex justify-content-center align-items-center">
+                                {% if style_tag == 'casual' %}
+                                <img class="card-img-top" src="{{ url_for('static', filename='casual.jpg') }}"
+                                     alt="Casual">
+                                {% else %}
+                                <img class="card-img-top" src="{{ url_for('static', filename='else.jpg') }}"
+                                     alt="Else">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card-body">
+                                    <h1>날씨 정보</h1>
+                                    <p class="card-text">지역: {{ location }}</p>
+                                    <p class="card-text">기온: {{ weather_info['기온'] }}℃</p>
+                                    <p class="card-text">강수량: {{ weather_info['강수량'] }}mm</p>
+                                    <p class="card-text">풍속: {{ weather_info['풍속'] }}m/s</p>
+                                    <p class="card-text">스타일: {{ style_tag }}</p>
 
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3 text-center">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">웨스타일 (Weastyle)</h1>
-            <p class="col-md-12 fs-4">※ 날씨api와 SNS 패션이미지 크롤링을 통해 Tensorflow를 활용한<br>날씨에 따른 생성된 패션 이미지 추천 프로그램</p>
-            <a href="/select" class="btn btn-primary btn-lg">start</a>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="{{ url_for('select') }}" class="btn btn-sm btn-outline-secondary">지역
+                                            선택으로
+                                            돌아가기</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

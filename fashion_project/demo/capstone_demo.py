@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 
-
 def ai(avgTemp, sumRain):
     # 모델 불러오기
     model = tf.keras.models.load_model('demo/model_demo.h5')

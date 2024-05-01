@@ -22,15 +22,15 @@ elif int(now_time[0:2]) < 11:
 elif int(now_time[0:2]) < 24:
     now_time = str(int(now_time[0:2]) - 1) + "00"  # ex) 0600
 
-# 서울, 부산, 대구, 인천, 광주, 대전, 울산, 세종, 경기, 충북, 충남, 전북, 전남, 경북, 경남, 제주, 강원순으로 좌표값
-xy_list = [(60, 127), (98, 76), (89, 90), (55, 124), (58, 74), (67, 100), (102, 84), (66, 103),
+# 서울, 부산, 대구, 인천, 광주, 대전, 울산, 경기, 충북, 충남, 전북, 전남, 경북, 경남, 제주, 강원순으로 좌표값
+xy_list = [(60, 127), (98, 76), (89, 90), (55, 124), (58, 74), (67, 100), (102, 84),
            (60, 120), (69, 107), (68, 100), (63, 89), (51, 67), (89, 91), (91, 77), (52, 38), (73, 134)]
 
 # 공공데이터 포털에서 단기예보api를 사용하기 위한 api키
 api_key = "1%2FCFOLYKPhbqr5KCMfu2IA4Zl25N6B7KedYBRbxuh3AbeigZpcJtFG3pdO9DUDgohN8Qe2L%2BdHjidB1dwABAaQ%3D%3D"
 
 # 각 지역 이름
-locations = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "충북", "충남", "전북", "전남", "경북", "경남", "제주", "강원"]
+locations = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "경기", "충북", "충남", "전북", "전남", "경북", "경남", "제주", "강원"]
 
 # 각 지역의 온도, 강수량, 풍속
 temperature = []
@@ -44,7 +44,6 @@ for i in range(0, len(xy_list)):
            '}&numOfRows=10&pageNo=1&base_date={}&base_time={}&nx={}&ny={}') \
         .format(api_key, now_date, now_time, xy_list[i][0], xy_list[i][1])
 
-    print(url)
     # 해당 url에 띄워진 데이터를 크롤링해서 가져옴
     # 이때 ssl 인증서 오류가 발생할 수 있으므로 verify=certifi.where() 옵션을 통해 인증서를 찾아서 직접 인증
     content = requests.get(url, verify=certifi.where()).content
