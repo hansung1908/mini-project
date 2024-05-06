@@ -1,9 +1,10 @@
-from flask import Flask, redirect, url_for, request, render_template
-from datetime import datetime
-
 import weather
 import demo.capstone_demo
 import old_weather
+import search_date
+
+from flask import Flask, redirect, url_for, request, render_template
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -33,15 +34,20 @@ def view():
     today = datetime.now().date()
     input_datetime = datetime.strptime(date, '%Y-%m-%d').date()
 
+    random_images = search_date.random_images
+    images_and_dates = search_date.combined_list
+
     if input_datetime == today:
         weather_info = weather.weather_data.get(location, "날씨 정보를 찾을 수 없습니다.")
         style_tag = demo.capstone_demo.ai(weather_info['기온'], weather_info['강수량'])
-        return render_template('view.html', location=location, weather_info=weather_info, style_tag=style_tag)
+        return render_template('view.html', images_and_dates=images_and_dates, random_images=random_images,
+                               date=today, location=location, weather_info=weather_info, style_tag=style_tag)
 
     else:
         weather_info = old_weather.get(date, location)
         style_tag = demo.capstone_demo.ai(weather_info['기온'], weather_info['강수량'])
-        return render_template('view.html', location=location, weather_info=weather_info, style_tag=style_tag)
+        return render_template('view.html', images_and_dates=images_and_dates, random_images=random_images,
+                               date=date, location=location, weather_info=weather_info, style_tag=style_tag)
 
 
 app.run(debug=True)

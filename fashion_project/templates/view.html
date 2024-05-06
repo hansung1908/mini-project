@@ -131,6 +131,7 @@
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
         <div class="col d-flex flex-column align-items-center gap-2">
             <h2 class="fw-bold text-body-emphasis">지역: {{ location }}</h2>
+            <h3 class="fw-bold">날짜: {{ date }}</h3>
             <a href="{{ url_for('select') }}" class="btn btn-sm btn-outline-secondary">지역 선택으로 돌아가기</a>
         </div>
 
@@ -174,13 +175,7 @@
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
         <div class="col">
             <div class="card card-cover h-100 overflow-hidden text-bg-white rounded-4 shadow-lg">
-                {% if style_tag == 'casual' %}
-                <img class="card-img-top" src="{{ url_for('static', filename='casual.jpg') }}"
-                     alt="Casual">
-                {% else %}
-                <img class="card-img-top" src="{{ url_for('static', filename='else.jpg') }}"
-                     alt="Else">
-                {% endif %}
+                <img src="{{ url_for('static', filename='img/' + random_images[0]) }}" alt="Random Image 1">
 
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-dark">
                     <ul class="d-flex list-unstyled mt-auto">
@@ -192,13 +187,13 @@
                             <img src="{{ url_for('static', filename='icon/user.png') }}" width="16" height="16"
                                  alt="user"/>
                             <span style="margin-right: 5px;"></span>
-                            <small>Test</small>
+                            <small>{{ images_and_dates[0][0] }}</small>
                         </li>
                         <li class="d-flex align-items-center">
                             <img src="{{ url_for('static', filename='icon/calendar.png') }}" width="16" height="16"
                                  alt="calendar"/>
                             <span style="margin-right: 5px;"></span>
-                            <small>2024-05-01</small>
+                            <small>{{ images_and_dates[0][1] }}</small>
                         </li>
                     </ul>
                 </div>
@@ -207,13 +202,7 @@
 
         <div class="col">
             <div class="card card-cover h-100 overflow-hidden text-bg-white rounded-4 shadow-lg">
-                {% if style_tag == 'casual' %}
-                <img class="card-img-top" src="{{ url_for('static', filename='casual.jpg') }}"
-                     alt="Casual">
-                {% else %}
-                <img class="card-img-top" src="{{ url_for('static', filename='else.jpg') }}"
-                     alt="Else">
-                {% endif %}
+                <img src="{{ url_for('static', filename='img/' + random_images[1]) }}" alt="Random Image 2">
 
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-dark">
                     <ul class="d-flex list-unstyled mt-auto">
@@ -225,13 +214,13 @@
                             <img src="{{ url_for('static', filename='icon/user.png') }}" width="16" height="16"
                                  alt="user"/>
                             <span style="margin-right: 5px;"></span>
-                            <small>Test</small>
+                            <small>{{ images_and_dates[1][0] }}</small>
                         </li>
                         <li class="d-flex align-items-center">
                             <img src="{{ url_for('static', filename='icon/calendar.png') }}" width="16" height="16"
                                  alt="calendar"/>
                             <span style="margin-right: 5px;"></span>
-                            <small>2024-05-01</small>
+                            <small>{{ images_and_dates[1][1] }}</small>
                         </li>
                     </ul>
                 </div>
@@ -240,13 +229,7 @@
 
         <div class="col">
             <div class="card card-cover h-100 overflow-hidden text-bg-white rounded-4 shadow-lg">
-                {% if style_tag == 'casual' %}
-                <img class="card-img-top" src="{{ url_for('static', filename='casual.jpg') }}"
-                     alt="Casual">
-                {% else %}
-                <img class="card-img-top" src="{{ url_for('static', filename='else.jpg') }}"
-                     alt="Else">
-                {% endif %}
+                <img src="{{ url_for('static', filename='img/' + random_images[2]) }}" alt="Random Image 3">
 
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-dark">
                     <ul class="d-flex list-unstyled mt-auto">
@@ -258,13 +241,13 @@
                             <img src="{{ url_for('static', filename='icon/user.png') }}" width="16" height="16"
                                  alt="user"/>
                             <span style="margin-right: 5px;"></span>
-                            <small>Test</small>
+                            <small>{{ images_and_dates[2][0] }}</small>
                         </li>
                         <li class="d-flex align-items-center">
                             <img src="{{ url_for('static', filename='icon/calendar.png') }}" width="16" height="16"
                                  alt="calendar"/>
                             <span style="margin-right: 5px;"></span>
-                            <small>2024-05-01</small>
+                            <small>{{ images_and_dates[2][1] }}</small>
                         </li>
                     </ul>
                 </div>

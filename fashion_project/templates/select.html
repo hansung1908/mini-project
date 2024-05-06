@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/list-groups/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link href="{{ url_for('static', filename='list-groups.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/list-groups.css') }}" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 
@@ -113,6 +113,17 @@
             <div class="text-center">
                 <h1>지역 선택</h1>
                 <p>본인이 지금 위치한 지역이나 원하는 지역을 선택하시오.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-6 text-center">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"
+                          style="display: flex; justify-content: center; align-items: center; width: 100%;">주의 : 2015년 이후의 날짜만 제공하고 있습니다</span>
+                </div>
+                <input type="text" name="date" id="datepicker" class="form-control text-center" placeholder="날짜를 선택하세요"
+                       aria-label="Datepicker">
             </div>
         </div>
 
@@ -266,11 +277,6 @@
             </div>
         </div>
 
-        <div class="input-group mb-3">
-            <input type="text" name="date" id="datepicker" class="form-control" placeholder="날짜를 선택하세요"
-                   aria-label="Datepicker">
-        </div>
-
         <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
             <input class="btn btn-primary mt-3" type="submit" value="Submit">
         </div>
@@ -287,9 +293,13 @@
         $('#datepicker').datepicker({
             format: 'yyyy-mm-dd',  // 날짜 형식 설정
             autoclose: true,       // 날짜 선택 후 자동으로 닫힘
-            todayHighlight: true,  // 오늘 날짜 강조 표시
-            showOnFocus: true      // 입력 필드에 포커스를 줄 때 달력 표시
-        }).datepicker('show');     // 페이지 로드 시 달력을 자동으로 표시
+            todayHighlight: true,   // 오늘 날짜 강조 표시
+            orientation: 'bottom'  // 캘린더를 항상 아래쪽에 표시
+        });
+    });
+
+    $(function() {
+        $("#datepicker").datepicker("setDate", new Date());
     });
 </script>
 </body>

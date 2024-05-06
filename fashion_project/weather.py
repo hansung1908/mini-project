@@ -63,3 +63,4 @@ for i in range(len(locations)):
         "강수량": precipitation[i],
         "풍속": wind_speed[i]
     }
+

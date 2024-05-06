@@ -7,6 +7,10 @@ def ai(avgTemp, sumRain):
     # 모델 불러오기
     model = tf.keras.models.load_model('demo/model_demo.h5')
 
+    # 모델 요약 정보 출력
+    print("모델 요약 정보:")
+    model.summary()
+
     # 변수
     print(avgTemp, sumRain)
     # avgTemp = 10.4
