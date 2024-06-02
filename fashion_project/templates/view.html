@@ -147,9 +147,25 @@
 
                 <div class="col d-flex flex-column gap-2">
                     <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3 bg-transparent border border-dark border-2">
+                        <img src="{{ url_for('static', filename='icon/gender.png') }}" width="32" height="32"
+                             alt="hanger"/>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">성별: {{ gender }}</h4>
+                </div>
+
+                <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3 bg-transparent border border-dark border-2">
                         <img src="{{ url_for('static', filename='icon/rain.png') }}" width="32" height="32" alt="rain"/>
                     </div>
                     <h4 class="fw-semibold mb-0 text-body-emphasis">강수량: {{ weather_info['강수량'] }}mm</h4>
+                </div>
+
+                <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3 bg-transparent border border-dark border-2">
+                        <img src="{{ url_for('static', filename='icon/hanger.png') }}" width="32" height="32"
+                             alt="hanger"/>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">스타일: {{ style_tag }}</h4>
                 </div>
 
                 <div class="col d-flex flex-column gap-2">
@@ -161,10 +177,10 @@
 
                 <div class="col d-flex flex-column gap-2">
                     <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3 bg-transparent border border-dark border-2">
-                        <img src="{{ url_for('static', filename='icon/hanger.png') }}" width="32" height="32"
+                        <img src="{{ url_for('static', filename='icon/tape.png') }}" width="32" height="32"
                              alt="hanger"/>
                     </div>
-                    <h4 class="fw-semibold mb-0 text-body-emphasis">스타일: {{ style_tag }}</h4>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">기장: {{ length_tag }}</h4>
                 </div>
             </div>
         </div>

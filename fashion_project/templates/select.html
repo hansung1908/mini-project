@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>지역 선택</title>
+    <title>선택 화면</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/list-groups/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -111,20 +111,63 @@
     <form action="/submit" method="post">
         <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
             <div class="text-center">
-                <h1>지역 선택</h1>
-                <p>본인이 지금 위치한 지역이나 원하는 지역을 선택하시오.</p>
+                <h1>선택 화면</h1>
+                <p>사용자가 원하는 성별, 날짜, 지역을 선택해 주세요.</p>
             </div>
         </div>
 
-        <div class="row justify-content-center mb-5">
+        <hr class="my-4">
+
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
+            <h3 class="mt-5 fw-bold">성별</h3>
+        </div>
+
+        <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+            <div class="list-group list-group-radio d-grid gap-2 border-0">
+                <div class="position-relative">
+                    <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
+                           name="gender" id="man" value="남자" checked>
+                    <label class="list-group-item py-3 pe-5" for="man">
+                        <strong class="fw-semibold">남자</strong>
+                        <span class="d-block small opacity-75">Man</span>
+                    </label>
+                </div>
+
+
+                <div class="position-relative">
+                    <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio"
+                           name="gender" id="woman" value="여자">
+                    <label class="list-group-item py-3 pe-5" for="woman">
+                        <strong class="fw-semibold">여자</strong>
+                        <span class="d-block small opacity-75">Woman</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
+            <h3 class="mt-5 fw-bold">날짜</h3>
+        </div>
+
+        <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
             <div class="col-md-6 text-center">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"
-                          style="display: flex; justify-content: center; align-items: center; width: 100%;">주의 : 2015년 이후의 날짜만 제공하고 있습니다</span>
+                    <span class="input-group-text alert alert-danger"
+                          style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                        주의 : 2015년 이후의 날짜만 제공하고 있습니다
+                    </span>
                 </div>
                 <input type="text" name="date" id="datepicker" class="form-control text-center" placeholder="날짜를 선택하세요"
                        aria-label="Datepicker">
             </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
+            <h3 class="mt-5 fw-bold">지역</h3>
         </div>
 
         <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
@@ -276,6 +319,8 @@
                 </div>
             </div>
         </div>
+
+        <hr class="my-4">
 
         <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
             <input class="btn btn-primary mt-3" type="submit" value="Submit">

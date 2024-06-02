@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="C:\Users\hansu\Desktop\새 폴더\4학년\캡스톤2\새폴더\찐최종데이터.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\fashion_project\img.csv">
           <value>
             <Attribute>

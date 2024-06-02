@@ -1,6 +1,5 @@
 import mysql.connector
 
-
 def get(date, location):
     db_connection = mysql.connector.connect(
         host='localhost',
