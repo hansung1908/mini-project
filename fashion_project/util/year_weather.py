@@ -1,9 +1,7 @@
 import requests, json
 import xmltodict
-import openpyxl
 import mysql.connector
 import os
-import pandas as pd
 
 api_key = "1%2FCFOLYKPhbqr5KCMfu2IA4Zl25N6B7KedYBRbxuh3AbeigZpcJtFG3pdO9DUDgohN8Qe2L%2BdHjidB1dwABAaQ%3D%3D"
 

@@ -1,6 +1,6 @@
 import mysql.connector
 
-def get(date, location):
+def get_old_weather(date, location):
     db_connection = mysql.connector.connect(
         host='localhost',
         user='root',
