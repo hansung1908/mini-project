@@ -15,7 +15,38 @@ numOfRows = 999
 startDts = [20150101, 20170101, 20190101, 20210101, 20230101]
 
 # 끝 날짜
-endDts = [20161231, 20181231, 20201231, 20221231, 20240430]
+endDts = [20161231, 20181231, 20201231, 20221231, 20240603]
+
+# MySQL 연결 설정
+db_connection = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password='1234',
+    database='capstone'
+)
+
+# 커서 생성
+cursor = db_connection.cursor()
+
+# 테이블 있으면 삭제후 재설정
+sql = "DROP TABLE IF EXISTS weather"
+cursor.execute(sql)
+sql2 = "CREATE TABLE weather (\
+            id INT AUTO_INCREMENT PRIMARY KEY,\
+            name VARCHAR(255),\
+            date VARCHAR(255),\
+            avgTemp DOUBLE,\
+            sumRain DOUBLE,\
+            avgWind DOUBLE\
+        );"
+cursor.execute(sql2)
+
+# 변경 사항 커밋
+db_connection.commit()
+
+# 연결 닫기
+cursor.close()
+db_connection.close()
 
 for location in locations:
     for startDt, endDt in zip(startDts, endDts):
@@ -43,20 +74,6 @@ for location in locations:
         # JSON 파일 읽기
         with open('data.json', 'r', encoding='UTF8') as file:
             data = json.load(file)
-
-        # 테이블 있으면 삭제후 재설정
-        # sql = "DROP TABLE IF EXISTS weather"
-        # cursor.execute(sql)
-        # sql2 = "CREATE TABLE weather (\
-        #     id INT AUTO_INCREMENT PRIMARY KEY,\
-        #     name VARCHAR(255),\
-        #     date VARCHAR(255),\
-        #     avgTemp DOUBLE,\
-        #     minTemp DOUBLE,\
-        #     maxTemp DOUBLE,\
-        #     sumRain DOUBLE\
-        # );"
-        # cursor.execute(sql2)
 
         # 데이터베이스에 데이터 삽입
         for record in data:

@@ -156,7 +156,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text alert alert-danger"
                           style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                        주의 : 2015년 이후의 날짜만 제공하고 있습니다
+                        주의 : 2015년 이후의 날짜만 제공하고 있습니다.
                     </span>
                 </div>
                 <input type="text" name="date" id="datepicker" class="form-control text-center" placeholder="날짜를 선택하세요"
@@ -340,11 +340,11 @@
             autoclose: true,       // 날짜 선택 후 자동으로 닫힘
             todayHighlight: true,   // 오늘 날짜 강조 표시
             orientation: 'bottom'  // 캘린더를 항상 아래쪽에 표시
-        });
+        })
     });
 
     $(function() {
-        $("#datepicker").datepicker("setDate", new Date());
+        $("#datepicker").datepicker("setDate", now.date());
     });
 </script>
 </body>

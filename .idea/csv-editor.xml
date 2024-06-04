@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\fashion_project\util\more_length.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

@@ -7,11 +7,12 @@ def play(avg_temp):
     model = tf.keras.models.load_model('length_model/length_pretrain_model.h5')
 
     # 모델 요약 정보 출력
-    print("모델 요약 정보:")
-    model.summary()
+    # print("모델 요약 정보:")
+    # model.summary()
 
     # 변수
     print(avg_temp)
+    # avg_temp = -20
     min_temp = avg_temp - 10
     max_temp = avg_temp + 10
 
